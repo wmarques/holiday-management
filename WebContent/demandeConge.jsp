@@ -7,6 +7,9 @@
 <title>Demande Congé</title>
 </head>
 <body>
-
+	<form action="VerificationServlet" method="POST">
+		Numéro du jour : <input type="number" name="day"/><br>
+		<input type="submit" value="OK">
+	</form>
 </body>
 </html>
