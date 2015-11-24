@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Authentification</title>
 </head>
 <body>
-
+	<form action="AuthentificationServlet" method="POST">
+		Login: <input type="text" name="login"/><br>
+		Password: <input type="password" name="password"/><br>
+		<input type="submit" value="OK">
+	</form>
 </body>
 </html>

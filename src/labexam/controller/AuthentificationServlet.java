@@ -1,11 +1,15 @@
 package labexam.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import labexam.model.Employe;
 
 /**
  * Servlet implementation class AuthentificationServlet
@@ -13,27 +17,43 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/AuthentificationServlet")
 public class AuthentificationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private ArrayList<Employe> employes;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
     public AuthentificationServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        employes = new ArrayList<Employe>();
+        
+        //testing
+        employes.add(new Employe(1234,"test"));
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		response.sendRedirect("index.jsp");
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		int login = Integer.parseInt(request.getParameter("login"));
+		String pwd = request.getParameter("password");
+		boolean ok = false;
+		
+		for (Employe employe : employes) {	
+			if(employe.getLogin() == login && employe.getPassword().equals(pwd)) {
+				ok = true;
+			}
+		}
+		
+		if(ok) response.sendRedirect("demandeConge.jsp");
+		else response.sendRedirect("error.jsp");
 	}
 
 }

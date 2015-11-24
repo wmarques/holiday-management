@@ -1,11 +1,15 @@
 package labexam.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import labexam.model.Employe;
 
 /**
  * Servlet implementation class VerificationServlet
@@ -19,7 +23,6 @@ public class VerificationServlet extends HttpServlet {
      */
     public VerificationServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
