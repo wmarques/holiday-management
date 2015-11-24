@@ -8,7 +8,7 @@
 </head>
 <body>
 	<form action="AuthentificationServlet" method="POST">
-		Login: <input type="text" name="login"/><br>
+		ID: <input type="number" name="login"/><br>
 		Password: <input type="password" name="password"/><br>
 		<input type="submit" value="OK">
 	</form>
