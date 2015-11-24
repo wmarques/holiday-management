@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%=  request.getAttribute("resultat")  %>
+<br>
+<a href="demandeConge.jsp">retours</a>
 </body>
 </html>

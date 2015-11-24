@@ -3,12 +3,14 @@ package labexam.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import labexam.model.Conge;
 import labexam.model.Employe;
 
 /**
@@ -37,6 +39,16 @@ public class VerificationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	}
+		int jour = Integer.parseInt(request.getParameter("day"));
+		if(Conge.instance().verifierJour(jour)){
+			Conge.instance().poserJour(jour);
+			request.setAttribute("resultat","congé posé");
 
+		}else{
+			request.setAttribute("resultat","impossible de posé le congé");
+		}
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/resultatDemande.jsp");
+		dispatcher.forward( request, response );
+	}
+		
 }
