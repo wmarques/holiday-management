@@ -24,6 +24,9 @@ if(session.getAttribute("user")==null  || !logged)
 	   response.sendRedirect("index.jsp");
 } 
 %>
+<%
+	if(request.getAttribute("resultat")==null)response.sendRedirect("demandeConge.jsp");
+%>
 <%=  request.getAttribute("resultat")  %>
 <br>
 <a href="demandeConge.jsp">Poser un autre jour</a><br>
