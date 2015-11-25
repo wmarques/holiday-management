@@ -30,14 +30,7 @@ public class LogoutServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		/*session.setAttribute("user", String.valueOf(employe.getLogin()));
-		Cookie logged = new Cookie("userID",String.valueOf(employe.getLogin()));
-		Cookie user_password = new Cookie("user_password",String.valueOf(employe.getPassword()));*/
-
 		session.invalidate();
-<<<<<<< HEAD
-
-=======
 		Cookie username = new Cookie("userID","");
 		Cookie pwd = new Cookie("user_password", "");
 		username.setMaxAge(0);
@@ -45,7 +38,6 @@ public class LogoutServlet extends HttpServlet {
 		response.addCookie(username);
 		response.addCookie(pwd);
 		response.sendRedirect("index.jsp");
->>>>>>> 11cecffa97b092f503057e3425f67652e1c5154d
 	}
 
 	/**
