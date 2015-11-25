@@ -7,6 +7,13 @@
 <title>Authentification</title>
 </head>
 <body>
+<%
+if(session.getAttribute("user")!=null)
+{
+	   response.sendRedirect("demandeConge.jsp");
+} 
+%>
+<%= session.getAttribute("user")%>
 	<form action="AuthentificationServlet" method="POST">
 		ID: <input type="number" name="login"/><br>
 		Password: <input type="password" name="password"/><br>

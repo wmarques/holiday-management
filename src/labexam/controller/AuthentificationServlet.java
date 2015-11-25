@@ -54,8 +54,10 @@ public class AuthentificationServlet extends HttpServlet {
 				session.setAttribute("user", String.valueOf(employe.getLogin()));
 				session.setMaxInactiveInterval(50);
 				Cookie logged = new Cookie("userID",String.valueOf(employe.getLogin()));
+				Cookie user_password = new Cookie("user_password",String.valueOf(employe.getPassword()));
 				logged.setMaxAge(345600);
 				response.addCookie(logged);
+				response.addCookie(user_password);
 				ok = true;
 			}
 		}
