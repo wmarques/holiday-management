@@ -35,7 +35,17 @@ public class LogoutServlet extends HttpServlet {
 		Cookie user_password = new Cookie("user_password",String.valueOf(employe.getPassword()));*/
 
 		session.invalidate();
+<<<<<<< HEAD
 
+=======
+		Cookie username = new Cookie("userID","");
+		Cookie pwd = new Cookie("user_password", "");
+		username.setMaxAge(0);
+		pwd.setMaxAge(0);
+		response.addCookie(username);
+		response.addCookie(pwd);
+		response.sendRedirect("index.jsp");
+>>>>>>> 11cecffa97b092f503057e3425f67652e1c5154d
 	}
 
 	/**

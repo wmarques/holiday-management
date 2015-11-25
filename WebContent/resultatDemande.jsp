@@ -26,6 +26,8 @@ if(session.getAttribute("user")==null  || !logged)
 %>
 <%=  request.getAttribute("resultat")  %>
 <br>
-<a href="demandeConge.jsp">retours</a>
+<a href="demandeConge.jsp">Poser un autre jour</a><br>
+<a href="LogoutServlet">Se déconnecter</a>
+
 </body>
 </html>

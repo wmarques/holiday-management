@@ -28,5 +28,6 @@ if(session.getAttribute("user")==null  || !logged)
 		Numéro du jour : <input type="number" name="day"/><br>
 		<input type="submit" value="OK">
 	</form>
+	<a href="LogoutServlet">Se déconnecter</a>
 </body>
 </html>
