@@ -5,9 +5,11 @@ import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import labexam.model.Employe;
 
@@ -48,6 +50,12 @@ public class AuthentificationServlet extends HttpServlet {
 		
 		for (Employe employe : employes) {	
 			if(employe.getLogin() == login && employe.getPassword().equals(pwd)) {
+				HttpSession session = request.getSession();
+				session.setAttribute("user", String.valueOf(employe.getLogin()));
+				session.setMaxInactiveInterval(50);
+				Cookie logged = new Cookie("userID",String.valueOf(employe.getLogin()));
+				logged.setMaxAge(345600);
+				response.addCookie(logged);
 				ok = true;
 			}
 		}
