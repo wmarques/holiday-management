@@ -7,6 +7,12 @@
 <title>Demande Congé</title>
 </head>
 <body>
+<% 
+if(session.getAttribute("user")==null)
+{
+	   response.sendRedirect("index.jsp");
+} 
+%>
 	<form action="VerificationServlet" method="POST">
 		Numéro du jour : <input type="number" name="day"/><br>
 		<input type="submit" value="OK">

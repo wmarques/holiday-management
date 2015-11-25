@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<% 
+if(session.getAttribute("user")==null)
+{
+	   response.sendRedirect("index.jsp");
+} 
+%>
 <%=  request.getAttribute("resultat")  %>
 <br>
 <a href="demandeConge.jsp">retours</a>
