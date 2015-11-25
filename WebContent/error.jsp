@@ -7,6 +7,7 @@
 <title>Error</title>
 </head>
 <body>
-
+	ID ou mot de passe incorrect.
+	<a href="index.jsp">Retour à l'accueil</a>
 </body>
 </html>
