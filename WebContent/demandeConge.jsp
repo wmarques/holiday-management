@@ -8,7 +8,18 @@
 </head>
 <body>
 <% 
-if(session.getAttribute("user")==null)
+Cookie[] cookies = null;
+boolean logged = false;
+cookies = request.getCookies();
+if(cookies != null) {
+	for(int i=0; i<cookies.length;i++) {
+		if(cookies[i].getName().equals("userID")) {
+			logged = true;
+			break;
+		}
+	}
+}
+if(session.getAttribute("user")==null  || !logged)
 {
 	   response.sendRedirect("index.jsp");
 } 
