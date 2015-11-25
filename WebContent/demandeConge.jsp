@@ -25,7 +25,7 @@ if(session.getAttribute("user")==null  || !logged)
 } 
 %>
 	<form action="VerificationServlet" method="POST">
-		Numéro du jour : <input type="number" name="day"/><br>
+		Numéro du jour : <input type="number" name="day"min="1" max="100" step="1"/><br>
 		<input type="submit" value="OK">
 	</form>
 	<a href="LogoutServlet">Se déconnecter</a>

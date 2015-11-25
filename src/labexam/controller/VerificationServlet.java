@@ -39,7 +39,7 @@ public class VerificationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int jour = Integer.parseInt(request.getParameter("day"));
+		int jour = Integer.parseInt(request.getParameter("day"))-1;
 		if(Conge.instance().verifierJour(jour)){
 			Conge.instance().poserJour(jour);
 			request.setAttribute("resultat","Congé posé avec succès.");
