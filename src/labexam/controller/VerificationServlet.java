@@ -42,10 +42,10 @@ public class VerificationServlet extends HttpServlet {
 		int jour = Integer.parseInt(request.getParameter("day"));
 		if(Conge.instance().verifierJour(jour)){
 			Conge.instance().poserJour(jour);
-			request.setAttribute("resultat","congé posé");
+			request.setAttribute("resultat","Congé posé avec succès.");
 
 		}else{
-			request.setAttribute("resultat","impossible de posé le congé");
+			request.setAttribute("resultat","Impossible de poser le congé.");
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/resultatDemande.jsp");
 		dispatcher.forward( request, response );

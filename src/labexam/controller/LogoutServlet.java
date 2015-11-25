@@ -31,6 +31,13 @@ public class LogoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.invalidate();
+		Cookie username = new Cookie("userID","");
+		Cookie pwd = new Cookie("user_password", "");
+		username.setMaxAge(0);
+		pwd.setMaxAge(0);
+		response.addCookie(username);
+		response.addCookie(pwd);
+		response.sendRedirect("index.jsp");
 	}
 
 	/**
